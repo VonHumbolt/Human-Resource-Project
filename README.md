@@ -7,7 +7,7 @@
  For authorizaiton processes, JWT token is used. 
  
  ## Layers
- 	Project's Layers
+ Project's Layers
  	
  ### Models
  Project's entities and dtos are in this package. This entities also represent a table in database.
