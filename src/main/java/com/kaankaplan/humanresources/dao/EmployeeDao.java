@@ -18,4 +18,10 @@ public interface EmployeeDao extends JpaRepository<Employee, Integer> {
 
 	@Query("From Employee e where e.isRest = :false")
 	List<Employee> getNotRestedUsers(Pageable pageable);
+	
+	@Query("From Employee e where e.experienceYear = :experienceYear")
+	List<Employee> getEmployeesByExperienceYear(int expreinceYear, Pageable pageable);
+	
+	@Query("From Employee e where e.isMilitayMissionDone = :isMilitayMissionDone")
+	List<Employee> getEmployeeByMilitayCase(boolean isMilitayMissionDone, Pageable pageable);
 }

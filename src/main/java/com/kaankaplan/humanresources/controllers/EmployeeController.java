@@ -51,6 +51,26 @@ public class EmployeeController {
 	}
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@GetMapping("getEmployeesByExperienceYear/{experienceYear}")
+	public ResponseEntity<List<Employee>> getEmployeesByExperienceYear(@PathVariable int experienceYear, @RequestParam Optional<Integer> pageNo, @RequestParam Optional<Integer> pageSize) {
+		
+		return new ResponseEntity<List<Employee>>(
+				this.employeeService.getEmployeesByExperienceYear(experienceYear, pageNo.orElse(1), pageSize.orElse(10)),
+				HttpStatus.OK
+			);
+	}
+	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@GetMapping("getEmployeeByMilitayCase/{experienceYear}")
+	public ResponseEntity<List<Employee>> getEmployeeByMilitayCase(@PathVariable boolean isMilitayMissionDone, @RequestParam Optional<Integer> pageNo, @RequestParam Optional<Integer> pageSize) {
+		
+		return new ResponseEntity<List<Employee>>(
+				this.employeeService.getEmployeeByMilitayCase(isMilitayMissionDone, pageNo.orElse(1), pageSize.orElse(10)),
+				HttpStatus.OK
+			);
+	}
+	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@GetMapping("getNotRestedUsers")
 	public ResponseEntity<List<Employee>> getNotRestedUsers(@RequestParam Optional<Integer> pageNo, @RequestParam Optional<Integer> pageSize) {
 		
@@ -59,6 +79,7 @@ public class EmployeeController {
 				HttpStatus.OK
 			);
 	}
+	
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')")
 	@GetMapping("getById/{userId}")

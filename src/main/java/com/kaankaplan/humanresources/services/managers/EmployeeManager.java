@@ -105,5 +105,21 @@ public class EmployeeManager implements EmployeeService{
 		
 	}
 
+	@Override
+	public List<Employee> getEmployeesByExperienceYear(int expreinceYear, int pageNo, int pageSize) {
+		
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		
+		return this.employeeDao.getEmployeesByExperienceYear(expreinceYear, pageable);
+	}
+
+	@Override
+	public List<Employee> getEmployeeByMilitayCase(boolean isMilitayMissionDone, int pageNo, int pageSize) {
+		
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		
+		return this.employeeDao.getEmployeeByMilitayCase(isMilitayMissionDone, pageable);
+	}
+
 
 }

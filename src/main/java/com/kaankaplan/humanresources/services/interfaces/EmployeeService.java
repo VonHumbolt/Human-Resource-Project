@@ -12,6 +12,10 @@ public interface EmployeeService {
 	
 	List<Employee> getNotRestedUsers(int pageNo, int pageSize);
 	
+	List<Employee> getEmployeesByExperienceYear(int expreinceYear, int pageNo, int pageSize);
+	
+	List<Employee> getEmployeeByMilitayCase(boolean isMilitayMissionDone, int pageNo, int pageSize);
+	
 	Employee getEmployeeById(int userId);
 	
 	void add(Employee employee);

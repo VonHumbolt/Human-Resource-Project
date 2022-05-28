@@ -24,6 +24,12 @@ public class Employee extends User{
 	@Column(name = "is_rest")
 	private boolean isRest = false;
 	
+	@Column(name = "expreience_year")
+	private int experienceYear;
+	
+	@Column(name = "militay_case")
+	private boolean isMilitayMissionDone;
+	
 	@Column(name = "rest_day")
 	private Date restDay;
 	
